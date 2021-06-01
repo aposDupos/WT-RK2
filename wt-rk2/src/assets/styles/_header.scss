@@ -1,0 +1,74 @@
+@import "colors";
+@import "mixins";
+
+header {
+  background: $eggshell;
+  padding: 25px 0;
+}
+
+.header {
+  @include grid1;
+  @media (max-width: 574px) {
+    @include grid2;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &-logo:hover {
+    animation: logoRotation 1s normal ease-in-out;
+  }
+
+  &-nav {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 400px) {
+      flex-direction: column;
+    }
+    &__item {
+      border-bottom: 1px solid rgba($black, 0);
+      transition: 1s ease-in-out;
+      margin: 0 1em;
+
+      &:hover {
+        border-bottom: 1px solid rgba($black, 1);
+      }
+
+      a {
+        text-align: center;
+        color: $black;
+      }
+
+      @media (max-width: 400px) {
+        margin: 20px 0;
+      }
+    }
+
+    @media (max-width: 574px) {
+      order: 1;
+    }
+  }
+
+  &-theme-switcher {
+    height: 40px;
+    width: 160px;
+    background: $independence;
+    color: $eggshell;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+
+  }
+}
+
+@keyframes logoRotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
