@@ -1,0 +1,31 @@
+@import "colors";
+@import "mixins";
+
+.section {
+  @include grid1;
+  border-top: $black 2px solid;
+  padding-top: 10px;
+  margin: 3em 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+
+  &-left {
+    display: flex;
+    grid-column: 1/6;
+    &__img{
+      display: flex;
+      max-width: 300px;
+      height: auto;
+      @media (max-width: 370px) {
+        max-width: 200px;
+      }
+    }
+  }
+  &-right{
+    @include grid1;
+    grid-column: 6/-1;
+  }
+@media (max-width: 680px) {
+  flex-direction: column;
+}
+}
